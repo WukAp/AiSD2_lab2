@@ -1,5 +1,5 @@
 #include <iostream>
-#include <vector>
+#include "List.h"
 
 template<typename keyType, typename valueType>
 
@@ -92,7 +92,7 @@ private:
 		}
 	}
 
-	std::vector<keyType> getKeysHelper(Node* node, std::vector <keyType> list) {
+	List <keyType> getKeysHelper(Node* node, List <keyType> list) {
 		if (node != nil) {
 			if (node->right != NULL && node->right != nil)
 				list = getKeysHelper(node->right, list);
@@ -103,7 +103,7 @@ private:
 		}
 	}
 
-	std::vector<valueType> getValuesHelper(Node* node, std::vector<valueType> list) {
+	List <valueType> getValuesHelper(Node* node, List <valueType> list) {
 		if (node != nil) {
 			if (node->right != NULL && node->right != nil)
 				list = getValuesHelper(node->right, list);
@@ -208,13 +208,13 @@ public:
 		this->root = nil;
 	}
 
-	std::vector <keyType> getKeys() {
-		std::vector <keyType> list;
+	List <keyType> getKeys() {
+		List <keyType> list;
 		return getKeysHelper(this->root, list);
 	}
 
-	std::vector <valueType> getValues() {
-		std::vector <valueType> list;
+	List <valueType> getValues() {
+		List <valueType> list;
 		return getValuesHelper(this->root, list);
 	}
 
@@ -355,5 +355,4 @@ public:
 		}
 		return 1;
 	}
-
 };

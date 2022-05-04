@@ -84,14 +84,14 @@ static void fano_encoder(std::string str, char* letters, int* count, string* enc
 	}
 
 	//creating arrays of counting and letters
-	std::vector<char> letters_list = map.getKeys();
-	std::vector<int> count_list = map.getValues();
+	List <char> letters_list = map.getKeys();
+	List <int> count_list = map.getValues();
 
-	int size = letters_list.size();
+	int size = letters_list.get_size();
 
 	for (int i = 0; i < size; i++) {
-		letters[i] = letters_list[i];
-		count[i] = count_list[i];
+		letters[i] = letters_list.at(i);
+		count[i] = count_list.at(i);
 	}
 	quickSort(count, letters, size);
 
